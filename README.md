@@ -8,7 +8,7 @@
 
    * **Java**
    * **C#**
-   * **C++** lub **JavaScript**
+   * **Go**
 
 2. **Badanie wydajności:** Obiektywna weryfikacja przepustowości (MB/s), czasu obliczeniowego oraz całkowitego opóźnienia end-2-end (czas obliczeniowy + opóźnienia architektury) różnych implementacji algorytmów.
 
@@ -37,7 +37,7 @@
 │          REDIS BROKER          │   │          SHARED STORAGE          │
 │                                │   │          (Docker Volume)         │
 │                                │   │                                  │
-│  - Zadania dla C++ \ JS        │   │  - Archiwa ZIP                   │
+│  - Zadania dla Go              │   │  - Archiwa ZIP                   │
 │  - Zadania dla C#              │   │  - Rozpakowane pliki             │
 │  - Zadania dla Java            │   │  - Pliki dostępne dla workerów   │
 │  - Odbieranie wyników          │   │                                  │
@@ -47,7 +47,7 @@
         ▼                    │                     ▼
 ┌────────────────────────────────────────────────────────┐
 │ ┌──────────────┐ ┌──────────────┐ ┌──────────────────┐ │
-│ │  C++ Worker  │ │  C# Worker   │ │   Java Worker    │ │  
+│ │  Go  Worker  │ │  C# Worker   │ │   Java Worker    │ │  
 │ │              │ │              │ │                  │ │
 │ │  - Obliczanie│ │  - Obliczanie│ │  - Obliczanie    │ │
 │ │    hashy     │ │    hashy     │ │    hashy         │ │
@@ -105,15 +105,13 @@
 
 ---
 
-### 5. C++ Worker *(opcjonalnie JS Worker)*
+### 5. Go Worker
 
 | Technologia / Biblioteka | Wersja | Rola w systemie |
 | :--- | :--- | :--- |
-| **Standard C++** (np. C++20) | `TBD` | Język bazowy i standard kompilatora |
-| **CMake** | `TBD` | System budowania projektu |
-| **redis-plus-plus / hiredis** | `TBD` | Klient komunikacji z Redisem w C++ |
-| **nlohmann/json** | `TBD` | Parsowanie zleceń i wyników JSON |
-| *(Alternatywa) Node.js + ioredis* | `TBD` | *Wariant w przypadku wyboru JS zamiast C++* |
+| **Go** | `TBD` | Środowisko wykonawcze i kompilator |
+| **go-redis**(go-redis/v9) | `TBD` | Klient komunikacji z Redisem |
+| **encoding/json** (wbudowany) | `TBD` | Parsowanie zleceń i wyników JSON |
 
 ---
 
