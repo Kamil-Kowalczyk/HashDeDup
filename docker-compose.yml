@@ -1,0 +1,27 @@
+services:
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    restart: always
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+    networks:
+      - worker-net
+  java-worker:
+    build: ./java-worker/hash
+    environment:
+      - REDIS_HOST=redis # the name of the redis service
+      - REDIS_PORT=6379
+      - REDIS_JAVA_CHANNEL=hash-java
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - worker-net
+networks:
+  worker-net:
+    driver: bridge
