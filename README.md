@@ -90,7 +90,7 @@
 | Technologia / Biblioteka | Wersja | Rola w systemie |
 | :--- | :--- | :--- |
 | **Java** | `TBD` | Środowisko wykonawcze workera |
-| **Jedis** | `TBD` | Klient subskrybujący kolejkę Redis |
+| **Letuce** | `TBD` | Klient subskrybujący kolejkę Redis |
 | **JSON Parser** (Jackson / Gson) | `TBD` | Serializacja i deserializacja komunikatów |
 
 ---
