@@ -17,11 +17,20 @@ services:
       - REDIS_HOST=redis # the name of the redis service
       - REDIS_PORT=6379
       - REDIS_JAVA_CHANNEL=hash-java
+      - FILES_DIR=/app/files
     depends_on:
       redis:
         condition: service_healthy
     networks:
       - worker-net
+    volumes:
+      - files:/app/files
+
 networks:
   worker-net:
     driver: bridge
+
+volumes:
+  files:
+    name: hash-shared-files
+    driver: local

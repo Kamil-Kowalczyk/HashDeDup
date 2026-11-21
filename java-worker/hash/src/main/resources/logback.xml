@@ -1,0 +1,21 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Twój kod: widzisz wszystko, łącznie z log.debug(...) -->
+    <logger name="pl.dkkp.hash" level="DEBUG" />
+
+    <!-- Wyciszamy gadatliwość sieciową Lettuce i Netty -->
+    <logger name="io.lettuce" level="WARN" />
+    <logger name="io.netty" level="WARN" />
+
+    <!-- Reszta bibliotek (np. Jackson) na poziomie INFO -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
