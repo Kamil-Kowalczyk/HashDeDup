@@ -6,6 +6,8 @@ public class Properties {
     private String redisHost;
     private int redisPort;
     private String redisTaskChannel;
+    private String redisResultChannel;
+    private String filesDir;
 
     public Properties() {
         this.redisHost = Objects.requireNonNullElse(System.getenv("REDIS_HOST"), "localhost");
@@ -16,6 +18,8 @@ public class Properties {
             this.redisPort = 6379;
         }
         this.redisTaskChannel = Objects.requireNonNullElse(System.getenv("REDIS_JAVA_CHANNEL"), "java-worker");
+        this.filesDir = Objects.requireNonNullElse(System.getenv("FILES_DIR"), "/app/files");
+        this.redisResultChannel = Objects.requireNonNullElse(System.getenv("REDIS_JAVA_RESULT_CHANNEL"), "java-worker-result");
     }
 
     public String getRedisHost() {
@@ -28,5 +32,13 @@ public class Properties {
 
     public String getRedisTaskChannel() {
         return redisTaskChannel;
+    }
+
+    public String getFilesDir() {
+        return filesDir;
+    }
+
+    public String getRedisResultChannel() {
+        return redisResultChannel;
     }
 }
